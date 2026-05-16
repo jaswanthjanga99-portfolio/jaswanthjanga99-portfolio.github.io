@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.eggs/
+
+# Virtual environments
+venv/
+.venv/
+
+# Editor/OS
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Flask instance folder (if used)
+instance/
+
