@@ -1,482 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jaswanth Reddy Janga | AI/ML Portfolio</title>
-
-    <!-- SEO / Social -->
-    <meta name="description" content="AI/ML portfolio by Jaswanth Reddy Janga: NLP resume analyzer, LLM chat assistant with retrieval, and CNN image classifier. Projects include evaluation-first engineering and recruiter-friendly outputs." />
-    <meta property="og:title" content="Jaswanth Reddy Janga | AI/ML Portfolio" />
-    <meta property="og:description" content="NLP + LLM + Computer Vision projects with evaluation-first engineering." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://example.com" />
-
-    <style>
-
-        body {
-            background: #000;
-            color: white;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-
-        /* Particles background */
-        #particles-canvas {
-            position: fixed;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-
-        .container {
-            width: 90%;
-            margin: auto;
-            padding: 40px;
-        }
-
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 40px;
-            padding: 80px 0;
-        }
-
-        .name-block {
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Left-to-right text reveal for the main name */
-        .name-reveal {
-            display: inline-block;
-            position: relative;
-        }
-
-        .name-reveal .text {
-            display: inline-block;
-            color: #fff;
-        }
-
-        .name-reveal::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 100%;
-            background: #000;
-            /* Start fully covering text */
-            transform: translateX(0%);
-            /* Slide cover away left -> right (reveals text left -> right) */
-            animation: reveal-left-to-right 1.3s ease-out forwards;
-        }
-
-
-
-        @keyframes reveal-left-to-right {
-            0% {
-                transform: translateX(0%);
-            }
-            100% {
-                transform: translateX(100%);
-            }
-        }
-
-
-
-
-
-        .profile-image {
-            width: 320px;
-            height: 320px;
-            border-radius: 30%;
-            object-fit: cover;
-            border: 4px solid white;
-            margin-bottom: 20px;
-        }
-
-        h1 {
-            font-size: 60px;
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            color: #999;
-            font-size: 28px;
-        }
-
-        .statement {
-            margin-top: 16px;
-            color: #e6e6e6;
-            font-size: 16px;
-            line-height: 1.6;
-            max-width: 520px;
-        }
-
-        .section-title {
-            margin-top: 60px;
-            margin-bottom: 30px;
-            font-size: 40px;
-        }
-
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background: #111;
-            padding: 25px;
-            border-radius: 20px;
-            border: 1px solid #333;
-        }
-
-        .bullet-list{
-            margin: 14px 0 0;
-            padding-left: 18px;
-            color: #d9d9d9;
-            line-height: 1.6;
-        }
-
-        .bullet-list li{
-            margin: 8px 0;
-        }
-
-
-        .tech {
-            color: #9b59ff;
-            margin-top: 10px;
-        }
-
-        .footer {
-            margin-top: 80px;
-            color: gray;
-        }
-
-        .contact-block {
-            text-align: left;
-            margin-bottom: 20px;
-            color: #aaa;
-            font-size: 16px;
-            line-height: 1.8;
-        }
-
-        .contact-title {
-            color: #bbb;
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        .copyright {
-            text-align: center;
-        }
-
-        .contact-block a {
-            color: #9b59ff;
-            text-decoration: none;
-        }
-
-        /* Ensure content renders above particles */
-        .container,
-        .hero,
-        .projects,
-        .card {
-            position: relative;
-            z-index: 1;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            #particles-canvas { display: none; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#173f35">
+  <title>Jaswanth Reddy Janga | AI &amp; ML Engineering</title>
+  <meta name="description" content="Jaswanth Reddy Janga’s AI/ML portfolio. Explore projects in natural language processing, retrieval-augmented generation, and computer vision.">
+  <meta property="og:title" content="Jaswanth Reddy Janga | AI & ML Engineering">
+  <meta property="og:description" content="Turning data and ideas into useful AI. Selected work in NLP, LLM applications, and computer vision.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jaswanth-reddy-ai-portfolio.hardyslug3.chatgpt.site/">
+  <link rel="canonical" href="https://jaswanth-reddy-ai-portfolio.hardyslug3.chatgpt.site/">
+  <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='site.js') }}" defer></script>
 </head>
-
-
 <body>
-
-    <canvas id="particles-canvas"></canvas>
-
-    <div class="container">
-
-
-        <div class="hero">
-
-            <img src="/static/profile.jpg"
-                 alt="Profile photo of Jaswanth Reddy Janga"
-                 class="profile-image"
-                 loading="lazy">
-
-
-            <div class="name-block">
-                <h1 class="name-reveal"><span class="text">Jaswanth Reddy Janga</span></h1>
-
-
-                <p class="subtitle">
-                    AI/ML Enthusiast
-                </p>
-
-                <p class="statement">
-                    AI/ML enthusiast focused on building real-world models—NLP extraction, LLM-powered assistants, and computer vision. I enjoy turning experiments into measurable improvements through clean evaluation and iteration.
-                </p>
-            </div>
-
-        </div>
-
-        <h2 class="section-title">Projects</h2>
-
-        <div class="projects">
-
-            {% for project in projects %}
-
-            <div class="card">
-
-                <h3>{{ project.title }}</h3>
-
-                <div class="highlights">
-                    <p class="statement" style="margin-top:10px; max-width: 100%;">
-                        {{ project.highlights }}
-                    </p>
-                </div>
-
-                <ul class="bullet-list">
-                    {% for b in project.bullets %}
-                    <li>{{ b }}</li>
-                    {% endfor %}
-                </ul>
-
-                <p class="tech">{{ project.tech }}</p>
-
-            </div>
-
-            {% endfor %}
-
-        </div>
-
-        <h2 class="section-title">Skills</h2>
-        <div class="projects" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
-            {% for s in skills %}
-            <div class="card" style="padding:18px 22px;">
-                <div style="color:#e6e6e6; font-weight:700;">•</div>
-                <p style="margin:0; color:#cfcfcf;">{{ s }}</p>
-            </div>
-            {% endfor %}
-        </div>
-
-        <h2 class="section-title">Highlights</h2>
-        <div class="projects">
-            {% for h in highlights %}
-            <div class="card">
-                <h3 style="margin-top:0; font-size:22px;">{{ h.title }}</h3>
-                <p style="margin:10px 0 0; color:#cfcfcf;">{{ h.desc }}</p>
-            </div>
-            {% endfor %}
-        </div>
-
-
-        <div class="footer">
-            <div class="contact-block">
-                <div class="contact-title">Contact Information</div>
-                <div>
-                    <a aria-label="Email" href="mailto:jaswanthjanga506@gmail.com" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:#9b59ff;">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path d="M4 6.5C4 5.67157 4.67157 5 5.5 5H18.5C19.3284 5 20 5.67157 20 6.5V17.5C20 18.3284 19.3284 19 18.5 19H5.5C4.67157 19 4 18.3284 4 17.5V6.5Z" stroke="#9b59ff" stroke-width="2"/>
-                            <path d="M6 7L12 12L18 7" stroke="#9b59ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <span>Email</span>
-                    </a>
-                </div>
-                <div>
-                    <a aria-label="LinkedIn" href="https://www.linkedin.com/in/jaswanth-reddy-janga-30718436a/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:#9b59ff;">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path d="M6.5 9.5H4.5V20H6.5V9.5Z" fill="#9b59ff"/>
-                            <path d="M5.5 7.8C6.32843 7.8 7 7.12843 7 6.3C7 5.47157 6.32843 4.8 5.5 4.8C4.67157 4.8 4 5.47157 4 6.3C4 7.12843 4.67157 7.8 5.5 7.8Z" fill="#9b59ff"/>
-                            <path d="M9.5 20V9.5H11.4V10.9H11.5C11.8 10.2 12.7 9.3 14.2 9.3C16.6 9.3 17.5 10.8 17.5 13.3V20H15.5V13.8C15.5 12.4 15.2 11.6 14.1 11.6C13.2 11.6 12.7 12.2 12.5 12.8C12.4 13.0 12.4 13.3 12.4 13.6V20H9.5Z" fill="#9b59ff"/>
-                        </svg>
-                        <span>LinkedIn</span>
-                    </a>
-                </div>
-                <div>
-                    <a aria-label="Phone" href="tel:+917330807800" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:#9b59ff;">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path d="M8.5 4.5L6.8 6.2C6.2 6.8 6 7.7 6.3 8.5C8.1 12.7 11.3 15.9 15.5 17.7C16.3 18.0 17.2 17.8 17.8 17.2L19.5 15.5C20 15 20 14.2 19.5 13.7L17.7 11.9C17.3 11.5 16.6 11.5 16.1 11.9L15.2 12.8C14.9 13.1 14.4 13.2 14.0 13.0C12.6 12.3 11.7 11.4 11.0 10.0C10.8 9.6 10.9 9.1 11.2 8.8L12.1 7.9C12.5 7.5 12.5 6.7 12.1 6.3L10.3 4.5C9.8 4 9 4 8.5 4.5Z" stroke="#9b59ff" stroke-width="2" stroke-linejoin="round"/>
-                        </svg>
-                        <span>Phone</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="copyright">&copy; 2026 Jaswanth Reddy Janga</div>
-        </div>
-
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="header">
+    <div class="nav-wrap wrap">
+      <a class="brand" href="#home" aria-label="Jaswanth, home"><span class="monogram">J<span>.</span></span><span>JASWANTH<span class="brand-sub">AI / ML ENGINEERING</span></span></a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="navigation">Menu <span aria-hidden="true">☰</span></button>
+      <nav id="navigation" aria-label="Main navigation"><a href="#work">Selected work</a><a href="#about">About</a><a href="#skills">Skills</a><a class="nav-contact" href="#contact">Let’s talk <span aria-hidden="true">↗</span></a></nav>
     </div>
-
-<script>
-    (function () {
-        const canvas = document.getElementById('particles-canvas');
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d', { alpha: true });
-
-
-        const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (!canvas || !ctx || prefersReducedMotion) return;
-
-        const DPR = Math.min(window.devicePixelRatio || 1, 2);
-
-        let w = 0;
-        let h = 0;
-
-        const mouse = {
-            x: 0,
-            y: 0,
-            active: false
-        };
-
-        window.addEventListener('mousemove', (e) => {
-            mouse.x = e.clientX;
-            mouse.y = e.clientY;
-            mouse.active = true;
-        }, { passive: true });
-
-        window.addEventListener('mouseleave', () => {
-            mouse.active = false;
-        });
-
-        function resize() {
-            w = window.innerWidth;
-            h = window.innerHeight;
-            canvas.width = Math.floor(w * DPR);
-            canvas.height = Math.floor(h * DPR);
-            canvas.style.width = w + 'px';
-            canvas.style.height = h + 'px';
-            ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-            initParticles();
-        }
-
-        const state = {
-            particles: [],
-            raf: null,
-            lastT: 0
-        };
-
-        function rand(min, max) {
-            return Math.random() * (max - min) + min;
-        }
-
-        function initParticles() {
-            const area = w * h;
-            // Performance-friendly: scale with screen area, clamp count.
-            const count = Math.max(60, Math.min(170, Math.floor(area / 14000)));
-
-            state.particles = new Array(count).fill(0).map(() => {
-                const speed = rand(0.15, 0.55);
-                const angle = rand(0, Math.PI * 2);
-                return {
-                    x: rand(0, w),
-                    y: rand(0, h),
-                    vx: Math.cos(angle) * speed,
-                    vy: Math.sin(angle) * speed,
-                    r: rand(1.0, 2.2),
-                    // Slightly violet/purple palette
-                    hue: rand(255, 285),
-                };
-            });
-        }
-
-        function step(t) {
-            const dt = Math.min(32, t - state.lastT || 16) / 16.6667;
-            state.lastT = t;
-
-            ctx.clearRect(0, 0, w, h);
-
-            // Draw particles + subtle connective lines
-            const maxDist = Math.min(150, Math.max(90, (w + h) / 22));
-            const maxDist2 = maxDist * maxDist;
-
-            const connCap = Math.min(950, Math.floor(state.particles.length * 6));
-            let connCount = 0;
-
-            for (let i = 0; i < state.particles.length; i++) {
-                const p = state.particles[i];
-
-
-                // Mouse repulsion
-                if (mouse.active) {
-                    const dxm = p.x - mouse.x;
-                    const dym = p.y - mouse.y;
-                    const d2 = dxm * dxm + dym * dym;
-                    const influence = 90000; // 300px radius squared
-                    if (d2 < influence) {
-                        const d = Math.sqrt(d2) || 0.0001;
-                        const strength = (1 - d / 300);
-                        p.vx += (dxm / d) * 0.02 * strength;
-                        p.vy += (dym / d) * 0.02 * strength;
-                    }
-                }
-
-                p.x += p.vx * dt;
-                p.y += p.vy * dt;
-
-                // Gentle damping
-                p.vx *= 0.995;
-                p.vy *= 0.995;
-
-                // Wrap edges
-                if (p.x < -10) p.x = w + 10;
-                if (p.x > w + 10) p.x = -10;
-                if (p.y < -10) p.y = h + 10;
-                if (p.y > h + 10) p.y = -10;
-
-                // Particle
-                ctx.beginPath();
-                ctx.fillStyle = `hsla(${p.hue}, 100%, 70%, 0.85)`;
-                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                ctx.fill();
-
-                // Connections (performance cap to reduce worst-case O(n^2))
-                for (let j = i + 1; j < state.particles.length; j++) {
-                    if (connCount >= connCap) break;
-                    const q = state.particles[j];
-
-                    const dx = p.x - q.x;
-                    const dy = p.y - q.y;
-                    const d2 = dx * dx + dy * dy;
-                    if (d2 < maxDist2) {
-                        const d = Math.sqrt(d2);
-                        const a = (1 - d / maxDist) * 0.35;
-                        ctx.strokeStyle = `hsla(265, 100%, 75%, ${a})`;
-                        ctx.lineWidth = 1;
-                        ctx.beginPath();
-                        ctx.moveTo(p.x, p.y);
-                        ctx.lineTo(q.x, q.y);
-                        ctx.stroke();
-                        connCount++;
-                    }
-                }
-            }
-
-
-            state.raf = requestAnimationFrame(step);
-        }
-
-        window.addEventListener('resize', () => {
-            // Debounce resize lightly
-            cancelAnimationFrame(state.raf);
-            resize();
-        }, { passive: true });
-
-        resize();
-        state.raf = requestAnimationFrame(step);
-    })();
-</script>
+  </header>
+  <main id="main">
+    <section id="home" class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="availability"><span class="status-dot"></span> OPEN TO AI / ML OPPORTUNITIES</p>
+        <p class="intro">Hi, I’m Jaswanth Reddy Janga.</p>
+        <h1 id="hero-title">Turning ideas<br>into <em>useful AI.</em></h1>
+        <p class="hero-description">I build with language models, computer vision, and Python—connecting thoughtful experiments to practical applications.</p>
+        <div class="hero-actions"><a class="button primary" href="#work">Explore my work <span aria-hidden="true">↗</span></a><a class="text-link" href="mailto:jaswanthjanga506@gmail.com?subject=Resume%20request%20%E2%80%94%20AI%2FML%20opportunity">Request résumé <span aria-hidden="true">↗</span></a></div>
+        <div class="hero-bottom"><span class="small-label">MY FOCUS</span><span>NLP <i>/</i> LLM applications <i>/</i> Computer vision</span></div>
+      </div>
+      <div class="portrait-area">
+        <div class="orbit orbit-one" aria-hidden="true"></div><div class="orbit orbit-two" aria-hidden="true"></div><span class="portrait-spark" aria-hidden="true">✳</span>
+        <figure class="portrait"><img src="{{ url_for('static', filename='profile.jpg') }}" alt="Jaswanth Reddy Janga" width="400" height="400" fetchpriority="high"><figcaption><span>JASWANTH REDDY JANGA</span><span>Curious by nature. Builder by practice.</span></figcaption></figure>
+        <div class="portrait-note"><span class="note-icon" aria-hidden="true">⌘</span><span>From experimentation<br><strong>to application.</strong></span></div><span class="portrait-index" aria-hidden="true">PORTFOLIO — 2026</span>
+      </div>
+    </section>
+    <div class="expertise-strip"><div class="wrap"><span>BUILT WITH PURPOSE</span><span>Python</span><span>Flask</span><span>Transformers</span><span>PyTorch / TensorFlow</span><span>OpenCV</span></div></div>
+    <section id="work" class="work-section wrap" aria-labelledby="work-title">
+      <div class="section-heading"><div><p class="eyebrow">01 / SELECTED WORK</p><h2 id="work-title">Ideas, put into practice<span>.</span></h2></div><p>Three projects exploring how AI can<br class="desktop-break"> make complex information useful.</p></div>
+      {% set categories = ['NATURAL LANGUAGE PROCESSING', 'LLM APPLICATIONS', 'COMPUTER VISION'] %}
+      {% set names = ['AI Resume Analyzer', 'LLM Chat Assistant', 'Image Classifier'] %}
+      {% set summaries = ['Making the connection between a résumé and a role clearer through skill extraction and semantic matching.', 'Bringing relevant document context into a conversational assistant for more grounded answers.', 'Connecting image preprocessing, CNN training, and evaluation in an inference-ready pipeline.'] %}
+      {% set results = ['Similarity scoring and explainable skill-gap summaries.', 'Document-grounded Q&A with conversation context.', 'A complete workflow from training to inference.'] %}
+      {% for project in projects %}
+      <article class="project project-{{ loop.index }}">
+        <div class="project-visual" role="img" aria-label="{{ names[loop.index0] }} workflow illustration">
+          <div class="visual-top"><span>PROJECT / 0{{ loop.index }}</span><span class="visual-symbol" aria-hidden="true">↗</span></div>
+          {% if loop.index == 1 %}
+          <div class="resume-diagram"><div class="paper"><span class="paper-label">RÉSUMÉ</span><span class="paper-line long"></span><span class="paper-line"></span><span class="paper-line short"></span><div class="paper-tags"><span>Python</span><span>NLP</span></div><span class="paper-line long"></span><span class="paper-line"></span></div><div class="match-node" aria-hidden="true">⇄</div><div class="role-paper"><span class="paper-label">ROLE</span><span class="paper-line long"></span><span class="paper-line"></span><span class="paper-line short"></span><div class="match-label"><span aria-hidden="true">✓</span> Skill matching</div></div></div>
+          <div class="diagram-caption"><span class="status-dot"></span> EXTRACT → MATCH → EXPLAIN</div>
+          {% elif loop.index == 2 %}
+          <div class="chat-diagram"><div class="chat-docs"><span>DOC 01</span><span>DOC 02</span><span>DOC 03</span></div><div class="retrieval-line" aria-hidden="true">↓</div><div class="chat-bubble"><span class="chat-star" aria-hidden="true">✳</span><div><strong>Answers with context.</strong><span>Retrieve. Understand. Respond.</span></div></div><div class="context-chips"><span>Retrieval</span><span>Conversation memory</span></div></div>
+          <div class="diagram-caption"><span class="status-dot"></span> DOCUMENTS → CONTEXT → ANSWER</div>
+          {% else %}
+          <div class="vision-diagram"><div class="vision-image"><div class="scan-corner tl"></div><div class="scan-corner tr"></div><div class="scan-corner bl"></div><div class="scan-corner br"></div><svg viewBox="0 0 180 150" aria-hidden="true"><circle cx="130" cy="39" r="15"/><path d="M12 132L63 52L100 102L124 72L170 132Z"/></svg></div><span class="vision-arrow" aria-hidden="true">→</span><div class="vision-output"><span>FEATURES</span><i></i><i></i><i></i><strong>Classification</strong></div></div>
+          <div class="diagram-caption"><span class="status-dot"></span> PREPROCESS → TRAIN → PREDICT</div>
+          {% endif %}
+        </div>
+        <div class="project-copy"><p class="eyebrow">{{ categories[loop.index0] }}</p><h3>{{ names[loop.index0] }}</h3><p class="project-summary">{{ summaries[loop.index0] }}</p><div class="tech-tags">{% for tech in project.tech.split(', ') %}<span>{{ tech }}</span>{% endfor %}</div><p class="project-outcome"><span>THE OUTPUT</span>{{ results[loop.index0] }}</p><details><summary>Explore the approach <span aria-hidden="true">+</span></summary><ul>{% for bullet in project.bullets %}<li>{{ bullet }}</li>{% endfor %}</ul></details></div>
+      </article>
+      {% endfor %}
+    </section>
+    <section id="about" class="about-section" aria-labelledby="about-title"><div class="wrap about-grid"><div><p class="eyebrow">02 / A LITTLE ABOUT ME</p><h2 id="about-title">An experimental mindset.<br><em>A practical approach.</em></h2></div><div class="about-copy"><p>I’m Jaswanth, an AI/ML enthusiast who enjoys turning complex problems into understandable, useful applications.</p><p>My work spans natural language processing, LLM-powered assistants, and computer vision. I care about what happens beyond a model’s prediction: how it’s evaluated, how clearly it explains its output, and how someone can actually use it.</p><a class="text-link" href="https://www.linkedin.com/in/jaswanth-reddy-janga-30718436a/" target="_blank" rel="noopener noreferrer">Get to know me on LinkedIn <span aria-hidden="true">↗</span></a></div><div class="principles">{% for h in highlights %}<div><span class="principle-number">0{{ loop.index }}</span><h3>{{ h.title }}</h3><p>{{ h.desc }}</p></div>{% endfor %}</div></div></section>
+    <section id="skills" class="skills-section wrap" aria-labelledby="skills-title"><div class="section-heading"><div><p class="eyebrow">03 / THE TOOLKIT</p><h2 id="skills-title">What I work with<span>.</span></h2></div><p>Tools and methods I bring<br class="desktop-break"> from experimentation to implementation.</p></div><div class="skill-rows"><div><span class="skill-icon" aria-hidden="true">↳</span><h3>Language & intelligence</h3><p>NLP <span>Transformers</span> Embeddings <span>RAG</span> Prompting</p></div><div><span class="skill-icon" aria-hidden="true">◉</span><h3>Vision & modeling</h3><p>CNNs <span>OpenCV</span> PyTorch <span>TensorFlow</span></p></div><div><span class="skill-icon" aria-hidden="true">⌘</span><h3>Engineering & evaluation</h3><p>Python <span>Flask</span> REST APIs <span>Data preprocessing</span> Model evaluation</p></div></div></section>
+    <section id="contact" class="contact-section" aria-labelledby="contact-title"><div class="wrap"><div class="contact-top"><p class="eyebrow"><span class="status-dot"></span> LET’S BUILD SOMETHING USEFUL</p><span class="contact-star" aria-hidden="true">✳</span></div><div class="contact-grid"><div><h2 id="contact-title">Your next AI project.<br><em>My next challenge.</em></h2><p>I’m looking for opportunities in AI/ML engineering.<br>Have a role or an interesting problem in mind? Let’s connect.</p><a class="button light" href="mailto:jaswanthjanga506@gmail.com">Get in touch <span aria-hidden="true">↗</span></a></div><div class="contact-links"><div><span class="small-label">EMAIL</span><a href="mailto:jaswanthjanga506@gmail.com">jaswanthjanga506@gmail.com <span aria-hidden="true">↗</span></a><button id="copy-email" type="button">Copy email <span aria-hidden="true">⧉</span></button><span id="copy-status" class="sr-only" role="status"></span></div><div><span class="small-label">ELSEWHERE</span><a href="https://www.linkedin.com/in/jaswanth-reddy-janga-30718436a/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a><a href="tel:+917330807800">+91 73308 07800 <span aria-hidden="true">↗</span></a></div></div></div><footer><a class="footer-brand" href="#home">Jaswanth<span>.</span></a><span>© 2026 Jaswanth Reddy Janga</span><a href="#home">Back to top <span aria-hidden="true">↑</span></a></footer></div></section>
+  </main>
 </body>
-
 </html>

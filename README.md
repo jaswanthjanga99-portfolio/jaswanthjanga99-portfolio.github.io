@@ -30,6 +30,15 @@ python app.py
 - `templates/index.html` - Portfolio HTML template
 - `static/profile.jpg` - Profile image served from `/static/profile.jpg`
 
-## Notes on GitHub Pages
+## Production export
+
+Run `python export_static.py` to render the portfolio into `dist/` with its
+stylesheet, JavaScript, image, and favicon. Sites serves this static output;
+Flask remains available for local development. Re-run the export after content
+or template changes before publishing.
+
+Production URL: https://jaswanth-reddy-ai-portfolio.hardyslug3.chatgpt.site/
+
+## Hosting the Flask application
 This project is server-side Flask, so it is not directly compatible with GitHub Pages without additional setup (e.g., a build + static export). For a live deployment, use a platform like Render/Railway/Fly.io/Heroku.
 
