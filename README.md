@@ -32,13 +32,17 @@ python app.py
 
 ## Production export
 
-Run `python export_static.py` to render the portfolio into `dist/` with its
-stylesheet, JavaScript, image, and favicon. Sites serves this static output;
-Flask remains available for local development. Re-run the export after content
-or template changes before publishing.
+Run `python export_static.py --output docs` to render the portfolio into `docs/`
+with its stylesheet, JavaScript, image, and favicon. GitHub Pages publishes the
+`docs` folder on `main`. Commit and push the regenerated files after changes to
+the content, templates, or assets. Relative asset URLs support the repository's
+URL path, and `.nojekyll` tells Pages to serve the exported files directly.
 
-Production URL: https://jaswanth-reddy-ai-portfolio.hardyslug3.chatgpt.site/
+Production URL: https://lokeshreddyjanga99-creator.github.io/Jaswanth-Portfolio-/
 
 ## Hosting the Flask application
-This project is server-side Flask, so it is not directly compatible with GitHub Pages without additional setup (e.g., a build + static export). For a live deployment, use a platform like Render/Railway/Fly.io/Heroku.
+Flask remains available for local development. `python export_static.py` also
+exports to `dist/` for hosting at a domain root. The production portfolio needs
+no server because its content is rendered at export time and its interactions
+run in the browser.
 
