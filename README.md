@@ -38,7 +38,7 @@ with its stylesheet, JavaScript, image, and favicon. GitHub Pages publishes the
 the content, templates, or assets. Relative asset URLs support the repository's
 URL path, and `.nojekyll` tells Pages to serve the exported files directly.
 
-Production URL: https://lokeshreddyjanga99-creator.github.io/Jaswanth-Portfolio-/
+Production URL: https://jaswanthjanga99-portfolio.github.io/
 
 ## Hosting the Flask application
 Flask remains available for local development. `python export_static.py` also
