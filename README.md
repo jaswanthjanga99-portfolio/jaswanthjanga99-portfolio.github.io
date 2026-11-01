@@ -32,9 +32,9 @@ python app.py
 
 ## Production export
 
-Run `python export_static.py --output docs` to render the portfolio into `docs/`
-with its stylesheet, JavaScript, image, and favicon. GitHub Pages publishes the
-`docs` folder on `main`. Commit and push the regenerated files after changes to
+Run `python export_static.py --output root` to render the portfolio into the
+repository root. GitHub Pages publishes the root folder on `main`.
+Commit and push the regenerated files after changes to
 the content, templates, or assets. Relative asset URLs support the repository's
 URL path, and `.nojekyll` tells Pages to serve the exported files directly.
 
